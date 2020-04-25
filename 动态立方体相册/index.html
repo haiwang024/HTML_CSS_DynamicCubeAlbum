@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>动态立方体</title>
+	<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.js"></script>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		background: #333;
+		overflow: hidden;
+		background: url(imgs/bg.gif);
+		background-size: cover;
+	}
+
+	ul {
+		width: 300px;
+		height: 300px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		/*3d�ռ�*/
+		transform-style: preserve-3d;
+		animation: box 20s linear infinite;
+	}
+
+	@keyframes box {
+
+		/*3d��ת x y z deg*/
+		from {
+			transform: rotate3d(0, 0, 0, 0deg);
+		}
+
+		to {
+			transform: rotate3d(1, 1, 1, 360deg);
+		}
+	}
+
+	li {
+		width: 300px;
+		height: 300px;
+		list-style: none;
+		border: 1px solid black;
+		position: absolute;
+		opacity: 0.8;
+		box-shadow: 0px 0px 10px white;
+	}
+
+	li:nth-child(1) {
+		background: url(imgs/001.jpg);
+		background-position: center;
+		background-size: cover;
+		transform: translateZ(150px);
+	}
+
+	/*��*/
+	li:nth-child(2) {
+		background: url(imgs/002.jpg);
+		background-position: center;
+		background-size: cover;
+		transform: translateZ(-150px);
+	}
+
+	/*��*/
+	li:nth-child(3) {
+		background: url(imgs/003.jpg);
+		background-position: center;
+		background-size: cover;
+		transform: rotateY(90deg) translateZ(-150px);
+	}
+
+	/*��*/
+	li:nth-child(4) {
+		background: url(imgs/004.jpg);
+		background-position: center;
+		background-size: cover;
+		transform: rotateY(90deg) translateZ(150px);
+	}
+
+	/*��*/
+	li:nth-child(5) {
+		background: url(imgs/005.jpg);
+		background-position: center;
+		background-size: cover;
+		transform: rotateX(90deg) translateZ(150px);
+	}
+
+	li:nth-child(6) {
+		background: url(imgs/006.jpg);
+		background-position: center;
+		background-size: cover;
+		transform: rotateX(90deg) translateZ(-150px);
+	}
+
+	ul:hover {
+		animation-play-state: paused;
+	}
+</style>
+
+<body> 
+	<audio src="./mp3/北京东路的日子.mp3" id="bjAudio" autoplay ></audio>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul> 
+<script>  
+		$(document).ready(function () { 
+			var audio = document.getElementById('bjAudio');
+			if (audio == null) {
+				return;
+			}  
+			audio.play();// 播放 
+		}); 
+	</script>
+</body>
+
+</html>
